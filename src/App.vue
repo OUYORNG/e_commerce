@@ -57,11 +57,5 @@ export default {
 </script>
 
 <template>
-   <div class="bg-gray-100 p-6">
-      <Promotion :group="currentCategory" title="Featured Categories" :promotions="promotions" />
-      <Product :group="currentCategory" title="Popular Products" :products="products" />
-   </div>
-
-   <!-- <categories name="Hello" stock="12" pic="/categories/cat-7-1.png" bg-color="bg-red-500"/> -->
    <RouterView />
 </template>

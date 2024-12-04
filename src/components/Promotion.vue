@@ -8,10 +8,10 @@
         </div>
     </div>
     <div class="grid grid-cols-3 gap-4 my-8">
-        <div v-for="promo in promotions" :key="promo.id" class="p-4 rounded-lg flex w-full h-[250px]"
-            :style="{ backgroundColor: promo.color }">
+        <div v-for="promo in promotions" :key="promo.id" class="p-4 rounded-lg flex w-full h-[30vh]"
+            :style="{ backgroundColor: promo.color, backgroundImage: `url('http://localhost:3000/${promo.image}')` }">
             <!-- Title and Button -->
-            <div>
+            <a :href="promo.url">
                 <h3 class="text-lg font-semibold mb-2" :style="{ color: promo.buttonColor }">
                     {{ promo.title }}
                 </h3>
@@ -19,10 +19,10 @@
                     :style="{ backgroundColor: promo.buttonColor }">
                     Shop Now
                 </button>
-            </div>
+            </a>
             <!-- Promotion Image -->
-            <img :src="`http://localhost:3000/${promo.image}`" alt="Promotion"
-                class="w-[100%] h-[100%] object-cover rounded-lg mb-4" />
+            <!-- <img :src="`http://localhost:3000/${promo.image}`" alt="Promotion"
+                    class="w-[100%] h-[100%] object-cover rounded-lg mb-4" /> -->
         </div>
     </div>
 </template>
@@ -42,7 +42,6 @@ export default {
     },
     methods: {
         shopNow(url) {
-            // Handle the Shop Now button click (e.g., navigate to the URL)
             window.location.href = url;
         },
     },
