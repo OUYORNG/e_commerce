@@ -1,61 +1,21 @@
 <script>
 
-import axios from 'axios';
-import categories from './components/categories.vue';
-import Product from './components/Product.vue';
-import Promotion from './components/Promotion.vue';
-
-export default {
-   data() {
-      return {
-         promotions: [],
-         products: [],
-         currentCategory: 'All',
-         currentGroupName: 'Group B'
-      }
-   },
-   methods: {
-      //  shopNow() { ............ },
-      fetchCategories() {
-         axios.get('http://localhost:3000/api/groups').then(res => {
-            this.currentCategory = res.data;
-            console.log(this.currentCategory);
-         })
-      },
-      fetchFeatures() {
-         axios.get('http://localhost:3000/api/features').then(res => {
-            this.currentCategory = res.data;
-         })
-      },
-      fetchProducts() {
-         axios.get('http://localhost:3000/api/products').then(res => {
-            this.products = res.data;
-            console.log(this.products);
-         })
-      },
-      fetchPromotions() {
-         axios.get('http://localhost:3000/api/promotions').then(res => {
-            this.promotions = res.data;
-            console.log(this.promotions);
-         })
-      }
-   },
-   mounted() {
-      // Mounted life cycle - It will be executed every time
-      // this component is loaded
-      this.fetchCategories()
-      this.fetchPromotions()
-      this.fetchProducts()
-   },
-   components: {
-      categories,
-      Product,
-      Promotion
-   }
-}
 
 </script>
 
 <template>
-   <RouterView />
+  <nav class="flex justify-between p-4 bg-red-300">
+    <h1>Header</h1>
+    <div class="flex gap-4">
+      <a href="/Page1">Page1</a>
+      <a href="/Page2">Page2</a>
+      <a href="/Page3">Page3</a>
+    </div>
+  </nav>
+  <main>
+  <RouterView />
+  </main>
+  <footer class="flex w-full bg-red-300 p-4">
+  <h1>This is footer</h1>
+  </footer>
 </template>
